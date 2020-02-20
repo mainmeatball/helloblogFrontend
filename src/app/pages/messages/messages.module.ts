@@ -4,6 +4,7 @@ import { MessagesComponent } from './messages.component';
 import {CardModule} from '../../components/card/card.module';
 import {RouterModule} from '@angular/router';
 import {messagesRoutes} from './messages.routes';
+import {CreateMessageModule} from '../../components/create-message/create-message.module';
 
 
 
@@ -12,6 +13,7 @@ import {messagesRoutes} from './messages.routes';
   imports: [
       CommonModule,
       CardModule,
+      CreateMessageModule,
       RouterModule.forChild(messagesRoutes)
   ]
 })

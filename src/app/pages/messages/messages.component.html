@@ -1,1 +1,8 @@
-<app-card></app-card>
+<app-create-message (postMessage)="addMessage($event)"></app-create-message>
+<ul>
+    <li *ngFor="let card of (cards$ | async); trackBy: trackByFn; index as i;">
+        <app-card
+          [item]="card"
+        ></app-card>
+    </li>
+</ul>
