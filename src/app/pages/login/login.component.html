@@ -1,0 +1,18 @@
+<form
+    [formGroup]="userForm"
+    (ngSubmit)="login()"
+    class="sign-form">
+    <div class="username">
+        <label>username:
+            <input formControlName="username" placeholder="username"/>
+        </label>
+    </div>
+    <div class="password">
+        <label>password:
+            <input formControlName="password" placeholder="password"/>
+        </label>
+    </div>
+    <button class="sign-button" type="submit">
+        Sign up
+    </button>
+</form>

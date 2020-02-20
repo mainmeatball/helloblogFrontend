@@ -1,0 +1,21 @@
+.sign-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid black;
+    width: 24%;
+    margin: auto;
+}
+
+.username, .password {
+    margin-bottom: 8px;
+}
+
+.sign-button {
+    width: 25%;
+}
+
+
+
