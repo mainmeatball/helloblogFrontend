@@ -1,1 +1,29 @@
-<p>card works!</p>
+<div class="card">
+    <div class="button-col">
+        <button class="upvote" (click)="upvote()">+</button>
+        <button class="downvote">-</button>
+        <button class="delete">x</button>
+    </div>
+    <div
+      *ngIf="!isEditMode; else editTemplate;"
+      class="content">
+      {{item.content}}
+    </div>
+    <div class="info-row">
+        <button
+          (click)="toggleEditMode()"
+          class="update">
+          Update
+        </button>
+        <div class="likes">{{item.likes}}</div>
+        <div class="date">{{item.localDateTime | date:'medium'}}</div>
+        <div class="author">{{item.user.username}}</div>
+    </div>
+</div>
+
+<ng-template #editTemplate>
+  <label class="content">
+    <textarea>
+    </textarea>
+  </label>
+</ng-template>

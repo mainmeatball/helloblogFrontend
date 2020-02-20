@@ -1,0 +1,36 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 24px;
+    width: 400px;
+    height: 200px;
+    background: #efefef;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 10px;
+    background: #4e9a77;
+  display: flex;
+
+  & > * {
+    flex: 1;
+  }
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background: rgb(222, 255, 151);
+}
+
+.button-col {
+    display: flex;
+    padding: 0 8px 8px 8px;
+}
+
+.delete {
+    margin-left: auto;
+}
