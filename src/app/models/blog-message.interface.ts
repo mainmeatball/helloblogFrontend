@@ -1,5 +1,5 @@
 import {User} from './user.interface';
-import {Tags} from './tags.interface';
+import {Tag} from './tag.interface';
 
 export interface BlogMessage {
   id: number;
@@ -7,5 +7,5 @@ export interface BlogMessage {
   content: string;
   likes: number;
   user: User;
-  tags: Tags[];
+  tags: Tag[];
 }
