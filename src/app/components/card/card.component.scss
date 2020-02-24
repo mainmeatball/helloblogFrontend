@@ -48,3 +48,13 @@
     margin-right: 8px;
     margin-bottom: 8px;
 }
+
+.tags-row {
+    display: flex;
+    flex-direction: row;
+    margin-top: 8px;
+
+    & > * {
+        margin-right: 8px;
+    }
+}

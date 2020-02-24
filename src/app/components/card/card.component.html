@@ -19,6 +19,14 @@
         <div class="date">{{item.localDateTime | date:'medium'}}</div>
         <div class="author">{{item.user.username}}</div>
     </div>
+    <div class="tags-row">
+        <div *ngFor="let tag of item.tags;">
+            <app-tag class="tag-chip"
+                     [item]="tag"
+            >
+            </app-tag>
+        </div>
+    </div>
 </div>
 
 <ng-template #editTemplate>
