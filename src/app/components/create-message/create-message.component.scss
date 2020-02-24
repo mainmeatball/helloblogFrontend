@@ -1,0 +1,14 @@
+.create-message {
+    display: flex;
+    flex-direction: row;
+}
+
+.tags-row {
+    display: flex;
+    flex-direction: row;
+    margin: 8px 0;
+
+    & > * {
+        margin-right: 8px;
+    }
+}

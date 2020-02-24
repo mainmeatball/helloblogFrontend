@@ -1,14 +1,28 @@
 <form
-  [formGroup]="messageForm"
-  (ngSubmit)="add()"
-  class="create-message">
-  <div class="message">
+    [formGroup]="messageForm"
+    (ngSubmit)="add()"
+    class="create-message">
+    <div class="message">
     <label>Message:
       <textarea formControlName="content"
                 placeholder="Enter your message"
                 class="text-area"
       ></textarea>
     </label>
-  </div>
-  <button type="submit">Add</button>
+    </div>
+    <button type="submit">Add</button>
+</form>
+<div class="tags-row">
+    <div *ngFor="let tag of messageForm.get('tags').value">
+        <app-tag [item]="tag"
+        ></app-tag>
+    </div>
+</div>
+<form [formGroup]="tagForm"
+      (ngSubmit)="addTag()"
+>
+    <label>Tag:
+        <input formControlName="name" placeholder="Tag"/>
+    </label>
+    <button class="add-tag" type="submit">^</button>
 </form>
