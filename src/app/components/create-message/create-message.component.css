@@ -1,0 +1,4 @@
+.create-message {
+    display: flex;
+    flex-direction: row;
+}

@@ -2,7 +2,7 @@
     <div class="button-col">
         <button class="upvote" (click)="upvote()">+</button>
         <button class="downvote">-</button>
-        <button class="delete">x</button>
+        <button class="delete" (click)="delete()">x</button>
     </div>
     <div
       *ngIf="!isEditMode; else editTemplate;"

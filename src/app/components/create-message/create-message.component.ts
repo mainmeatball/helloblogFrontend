@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Output} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {CreateMessageService} from './services/create-message.service';
 import {BlogMessage} from '../../models/blog-message.interface';
+import {MessagesService} from '../../pages/messages/services/messages.service';
 
 @Component({
   selector: 'app-create-message',
@@ -16,11 +16,11 @@ export class CreateMessageComponent {
     content: new FormControl('')
   });
 
-  constructor(private createMessage: CreateMessageService) {
+  constructor(private messagesService: MessagesService) {
   }
 
-  public add() {
-    this.createMessage.submitMessage(this.messageForm.value).subscribe(
+  public add(): void {
+      this.messagesService.submitMessage(this.messageForm.value).subscribe(
       (message: BlogMessage) => {
         this.postMessage.emit(message);
       }

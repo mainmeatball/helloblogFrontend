@@ -29,8 +29,16 @@ export class MessagesComponent implements OnInit {
     }
 
     public addMessage(message: BlogMessage): void {
-      const cards = this.cards$.getValue();
-      cards.push(message);
-      this.cards$.next(cards);
+        const cards = this.cards$.getValue();
+        cards.push(message);
+        this.cards$.next(cards);
+    }
+
+    public deleteMessage(id: number): void {
+        let cards = this.cards$.getValue();
+        cards = cards.filter(card => {
+            return card.id !== id;
+        });
+        this.cards$.next(cards);
     }
 }

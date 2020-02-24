@@ -3,8 +3,11 @@
   (ngSubmit)="add()"
   class="create-message">
   <div class="message">
-    <label>username:
-      <textarea formControlName="content" placeholder="Enter your message"></textarea>
+    <label>Message:
+      <textarea formControlName="content"
+                placeholder="Enter your message"
+                class="text-area"
+      ></textarea>
     </label>
   </div>
   <button type="submit">Add</button>

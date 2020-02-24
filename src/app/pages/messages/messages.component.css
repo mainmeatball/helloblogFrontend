@@ -1,3 +1,18 @@
+.message-column {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+}
+
+.add-message {
+    margin: 8px auto auto auto;
+}
+
+ul {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 li {
     list-style-type: none;
 }

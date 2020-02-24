@@ -10,15 +10,14 @@ import {MessagesService} from '../../pages/messages/services/messages.service';
 })
 export class CardComponent {
     @Input() item: BlogMessage;
+    @Output() deleteMessage = new EventEmitter<number>();
 
     public isEditMode = false;
 
     constructor(
       private messages: MessagesService,
       private cdr: ChangeDetectorRef
-    ) {
-
-    }
+    ) { }
 
     public upvote(): void {
       this.messages.upvoteMessage(this.item.id).subscribe(
@@ -27,6 +26,14 @@ export class CardComponent {
           this.cdr.markForCheck();
         }
       );
+    }
+
+    public delete(): void {
+        this.messages.deleteMessage(this.item.id).subscribe(
+            () => {
+                this.deleteMessage.emit(this.item.id);
+            }
+        );
     }
 
     public toggleEditMode(): void {
