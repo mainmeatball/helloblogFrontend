@@ -8,17 +8,6 @@
     background: #efefef;
 }
 
-.content {
-    flex-grow: 1;
-    padding: 10px;
-    background: #4e9a77;
-  display: flex;
-
-  & > * {
-    flex: 1;
-  }
-}
-
 .info-row {
     display: flex;
     justify-content: space-around;
@@ -33,4 +22,29 @@
 
 .delete {
     margin-left: auto;
+}
+
+.template {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background: #4e9a77;
+}
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    padding: 10px;
+    background: #4e9a77;
+
+    & > * {
+        flex: 1;
+    }
+}
+
+.add-new-content {
+    width: 30px;
+    margin-left: auto;
+    margin-right: 8px;
+    margin-bottom: 8px;
 }

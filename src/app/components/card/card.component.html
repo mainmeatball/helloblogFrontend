@@ -1,8 +1,8 @@
 <div class="card">
     <div class="button-col">
-        <button class="upvote" (click)="upvote()">+</button>
-        <button class="downvote">-</button>
-        <button class="delete" (click)="delete()">x</button>
+        <button class="upvote"   (click)="upvote()">+</button>
+        <button class="downvote" (click)="downvote()">-</button>
+        <button class="delete"   (click)="delete()">x</button>
     </div>
     <div
       *ngIf="!isEditMode; else editTemplate;"
@@ -22,8 +22,13 @@
 </div>
 
 <ng-template #editTemplate>
-  <label class="content">
-    <textarea>
-    </textarea>
-  </label>
+    <form class="template"
+          [formGroup]="contentForm"
+          (submit)="update()">
+        <label class="content">
+            <textarea formControlName="content"
+            ></textarea>
+        </label>
+        <button class="add-new-content" type="submit">Add</button>
+    </form>
 </ng-template>

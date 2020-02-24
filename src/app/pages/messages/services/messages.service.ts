@@ -20,6 +20,10 @@ export class MessagesService {
         return this.http.get<BlogMessage[]>('http://localhost:8080/messages');
     }
 
+    public updateMessage(id: number, content: string): Observable<void> {
+        return this.http.put<void>(`http://localhost:8080/messages/${id}`, content);
+    }
+
     public upvoteMessage(id: number): Observable<void> {
         return this.http.put<void>(`http://localhost:8080/messages/${id}/upvote`, null);
     }
