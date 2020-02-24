@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import {BlogMessage} from '../../models/blog-message.interface';
 import {MessagesService} from '../../pages/messages/services/messages.service';
 
@@ -26,6 +26,15 @@ export class CardComponent {
           this.cdr.markForCheck();
         }
       );
+    }
+
+    public downvote(): void {
+        this.messages.downvoteMessage(this.item.id).subscribe(
+            () => {
+                this.item.likes -= 1;
+                this.cdr.markForCheck();
+            }
+        );
     }
 
     public delete(): void {

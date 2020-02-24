@@ -24,6 +24,10 @@ export class MessagesService {
         return this.http.put<void>(`http://localhost:8080/messages/${id}/upvote`, null);
     }
 
+    public downvoteMessage(id: number): Observable<void> {
+        return this.http.put<void>(`http://localhost:8080/messages/${id}/downvote`, null);
+    }
+
     public deleteMessage(id: number): Observable<void> {
         return this.http.delete<void>(`http://localhost:8080/messages/${id}`);
     }
