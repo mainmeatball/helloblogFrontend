@@ -1,6 +1,8 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {UserService} from './services/user.service';
 import {FormControl, FormGroup} from '@angular/forms';
+import {Token} from '../login/models/token';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-sign',
@@ -14,11 +16,19 @@ export class SignComponent {
         password: new FormControl('')
     });
 
-    constructor(private userService: UserService) {
+    constructor(
+        private route: ActivatedRoute,
+        private router: Router,
+        private userService: UserService
+    ) {
     }
 
-    signUp() {
+    signUp(): void {
         this.userService.signUser(this.userForm.value).subscribe(
+            ({id_token}: Token) => {
+                localStorage.setItem('id_token', id_token);
+                this.router.navigate(['/messages']);
+            }
         );
     }
 }
