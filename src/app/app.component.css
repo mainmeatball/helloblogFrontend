@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    flex-direction: row;
+}
+
+.auth {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.sign-up, .login {
+    margin-left: 8px;
+}
+
+.logout {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    /*optional*/
+    font-family: times, arial, sans-serif;
+    font-size: 12pt;
+    /*input has OS specific font-family*/
+    color: rgb(85, 26, 139);
+    text-decoration: underline;
+    cursor: pointer;
+}

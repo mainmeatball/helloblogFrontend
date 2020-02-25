@@ -7,5 +7,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-    public readonly items = new Array(20);
+    logout(): void {
+        console.log('logging out');
+    }
 }
