@@ -30,7 +30,7 @@ export class MessagesComponent implements OnInit {
 
     public addMessage(message: BlogMessage): void {
         const cards = this.cards$.getValue();
-        cards.push(message);
+        cards.unshift(message);
         this.cards$.next(cards);
     }
 

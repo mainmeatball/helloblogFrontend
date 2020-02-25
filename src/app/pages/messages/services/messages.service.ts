@@ -17,7 +17,7 @@ export class MessagesService {
     }
 
     public fetchMessages(): Observable<BlogMessage[]> {
-        return this.http.get<BlogMessage[]>('http://localhost:8080/messages');
+        return this.http.get<BlogMessage[]>('http://localhost:8080/messages?dir=desc');
     }
 
     public updateMessage(id: number, content: string): Observable<void> {

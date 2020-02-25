@@ -25,18 +25,25 @@ export class CreateMessageComponent {
     constructor(private messagesService: MessagesService) {
     }
 
+    get tags(): FormArray {
+        return this.messageForm.get('tags') as FormArray;
+    }
+
     public add(): void {
         this.messagesService.submitMessage(this.messageForm.value).subscribe(
             (message: BlogMessage) => {
                 this.postMessage.emit(message);
+                this.tags.clear();
+                this.messageForm.reset();
+                this.tagForm.reset();
             }
         );
     }
 
     public addTag(): void {
-        const tags = this.messageForm.get('tags') as FormArray;
         const newTag: Partial<Tag> = {name: this.tagForm.get('name').value};
-        tags.push(new FormControl(newTag));
+        this.tags.push(new FormControl(newTag));
+        this.tagForm.reset();
     }
 
 }
