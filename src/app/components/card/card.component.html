@@ -17,12 +17,18 @@
         </button>
         <div class="likes">{{item.likes}}</div>
         <div class="date">{{item.localDateTime | date:'medium'}}</div>
-        <div class="author">{{item.user.username}}</div>
+        <a
+            class="author"
+            [routerLink]="['/messages']"
+            [queryParams]="{username:item.user.username}">
+            {{item.user.username}}
+        </a>
     </div>
     <div class="tags-row">
         <div *ngFor="let tag of item.tags;">
-            <app-tag class="tag-chip"
-                     [item]="tag"
+            <app-tag
+                class="tag-chip"
+                [item]="tag"
             >
             </app-tag>
         </div>
