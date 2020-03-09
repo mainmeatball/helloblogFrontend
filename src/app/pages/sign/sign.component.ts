@@ -1,8 +1,9 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {UserService} from './services/user.service';
+import {SignService} from './services/sign.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Token} from '../login/models/token';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router} from '@angular/router';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-sign',
@@ -17,16 +18,16 @@ export class SignComponent {
     });
 
     constructor(
-        private route: ActivatedRoute,
         private router: Router,
-        private userService: UserService
+        private signService: SignService,
+        private user: UserService
     ) {
     }
 
     signUp(): void {
-        this.userService.signUser(this.userForm.value).subscribe(
+        this.signService.signUser(this.userForm.value).subscribe(
             ({id_token}: Token) => {
-                localStorage.setItem('id_token', id_token);
+                this.user.setToken(id_token);
                 this.router.navigate(['/messages']);
             }
         );

@@ -9,7 +9,7 @@ import {Token} from '../../login/models/token';
 @Injectable({
     providedIn: 'root',
 })
-export class UserService {
+export class SignService {
     constructor(private http: HttpClient) {
     }
 
