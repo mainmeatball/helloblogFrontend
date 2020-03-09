@@ -1,6 +1,7 @@
 <div class="header">
     <a class="home-page" [routerLink]="['/']">home page</a>
     <div class="auth">
+        <div *ngIf="logged$ | async">Logged as {{logged$ | async}}</div>
         <button class="logout" (click)="logout()">Logout</button>
         <a class="login" [routerLink]="['/login']">Login</a>
         <a class="sign-up" [routerLink]="['/sign-up']">Sign-up</a>

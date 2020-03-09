@@ -7,10 +7,14 @@ export const routes: Routes = [
     },
     {
         path: 'sign-up',
-        loadChildren: () => import('./pages/sign/sign.module').then(s => s.SignModule)
+        loadChildren: () => import('./pages/sign/sign.module').then(m => m.SignModule)
     },
     {
         path: 'login',
-        loadChildren: () => import('./pages/login/login.module').then(s => s.LoginModule)
+        loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)
+    },
+    {
+        path: 'admin',
+        loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule)
     },
 ];

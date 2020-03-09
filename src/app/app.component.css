@@ -4,11 +4,13 @@
 }
 
 .auth {
+    display: flex;
+    flex-direction: row;
     margin-left: auto;
     margin-right: 0;
 }
 
-.sign-up, .login {
+.sign-up, .login, .logout {
     margin-left: 8px;
 }
 
