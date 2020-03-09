@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {BlogMessage} from '../../../models/blog-message.interface';
+import {Tag} from '../../../models/tag.interface';
 
 
 
@@ -16,8 +17,17 @@ export class MessagesService {
         return this.http.post<BlogMessage>('http://localhost:8080/messages', message);
     }
 
-    public fetchMessages(): Observable<BlogMessage[]> {
-        return this.http.get<BlogMessage[]>('http://localhost:8080/messages?dir=desc');
+    public fetchMessages(username?: string, tags?: string[]): Observable<BlogMessage[]> {
+        let params = new HttpParams({fromObject: {
+            dir: 'desc',
+        }});
+        if (username) {
+            params = params.append('username', username);
+        }
+        if (tags) {
+            params = params.append('tags', tags.join(','));
+        }
+        return this.http.get<BlogMessage[]>('http://localhost:8080/messages', {params});
     }
 
     public updateMessage(id: number, content: string): Observable<void> {
