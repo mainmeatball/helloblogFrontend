@@ -1,8 +1,9 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {UserService} from './services/user.service';
+import {LoginService} from './services/login.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Token} from './models/token';
 import {Router} from '@angular/router';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -18,14 +19,15 @@ export class LoginComponent {
 
     constructor(
         private router: Router,
-        private userService: UserService
+        private loginService: LoginService,
+        private user: UserService
     ) {
     }
 
     login(): void {
-        this.userService.login(this.userForm.value).subscribe(
+        this.loginService.login(this.userForm.value).subscribe(
             ({id_token}: Token) => {
-                localStorage.setItem('id_token', id_token);
+                this.user.setToken(id_token);
                 this.router.navigate(['/messages']);
             }
         );
